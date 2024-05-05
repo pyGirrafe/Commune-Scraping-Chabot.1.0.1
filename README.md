@@ -53,4 +53,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Acknowledgments
 
-- Thanks to [Name of Library/Tool] for providing the web scraping functionality.
+- Thanks to Beautifulsoup ad Langchain for providing the web scraping functionality.
