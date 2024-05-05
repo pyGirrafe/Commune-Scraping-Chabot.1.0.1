@@ -14,14 +14,6 @@ This project is a scraping chatbot designed to extract information from websites
 
 ## Installation
 
-1. Clone the repository:
-
-    ```
-    git clone https://github.com/yourusername/scraping-chatbot.git
-    ```
-
-2. Install dependencies:
-
     ```
     pip install -r requirements.txt
     ```
