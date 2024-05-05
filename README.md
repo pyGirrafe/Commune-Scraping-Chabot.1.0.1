@@ -1,4 +1,4 @@
-# Scraping Chatbot
+# Commune Scraping Chatbot
 
 ## Overview
 
@@ -22,7 +22,6 @@ This project is a scraping chatbot designed to extract information from websites
     npm run build
 
     npm start
-    
     ```
 
 2. Backend:
@@ -31,7 +30,6 @@ This project is a scraping chatbot designed to extract information from websites
     pip install -r requirements.txt
 
     flask --app chatbot run
-
     ```
 
 ## Example Queries
@@ -55,4 +53,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Acknowledgments
 
-- Thanks to [Name of Library/Tool] for providing the web scraping functionality.
+- Thanks to Beautifulsoup ad Langchain for providing the web scraping functionality.
