@@ -28,7 +28,7 @@ const Home = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/website?url=${text}`
+        `http://135.181.241.163/api/website?url=${text}`
       );
       console.log(response.data);
       if (response.data.msg) {

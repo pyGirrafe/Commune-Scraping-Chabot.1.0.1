@@ -60,7 +60,7 @@ export default function Page() {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/chat?user_message=${text}`
+        `http://135.181.241.163/api/chat?user_message=${text}`
       );
 
       if (!response.data.error) {
