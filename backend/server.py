@@ -22,7 +22,7 @@ def index():
 @app.route('/api/api_docs', methods=['GET'])
 def send_html_file():
     try:
-        return send_file('path/to/your/html/file.html')
+        return send_file('api_docs.html')
     except Exception as e:
         logger.error(f"An error occurred: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
