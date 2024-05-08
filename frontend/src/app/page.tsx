@@ -28,7 +28,7 @@ const Home = () => {
 
     try {
       const response = await axios.get(
-        `http://135.181.241.163/api/website?url=${text}`
+        `http://135.181.241.163/api/scrape?website_url=${text}`
       );
       console.log(response.data);
       if (response.data.msg) {

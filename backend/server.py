@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import logging
 
@@ -15,14 +15,22 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Define routes
-@app.route('/')
+@app.route('/api')
 def index():
     return 'Welcome to the Flask server!'
 
-@app.route('/api/website', methods=['GET'])
+@app.route('/api/api_docs', methods=['GET'])
+def send_html_file():
+    try:
+        return send_file('path/to/your/html/file.html')
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
+
+@app.route('/api/scrape', methods=['GET'])
 def scrape_website_embed():
     try:
-        url = request.args.get('url')
+        url = request.args.get('website_url')
         if url:
             scrape_result = scrape_website(url)
             if scrape_result:
