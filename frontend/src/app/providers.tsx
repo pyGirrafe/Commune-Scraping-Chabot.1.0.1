@@ -12,7 +12,7 @@ import { store } from "@/store";
 const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <PolkadotProvider wsEndpoint={String(process.env.NEXT_PUBLIC_COMMUNE_API)}>
-      <NextUIProvider>
+      {/* <NextUIProvider> */}
         <NextThemesProvider attribute="class" defaultTheme="dark">
           <ConfigProvider>
             <Provider store={store}>
@@ -20,7 +20,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
             </Provider>
           </ConfigProvider>
         </NextThemesProvider>
-      </NextUIProvider>
+      {/* </NextUIProvider> */}
     </PolkadotProvider>
   );
 };

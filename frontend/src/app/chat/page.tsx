@@ -2,6 +2,7 @@
 import { RootState } from "@/store";
 import { Message, setMessages } from "@/store/slice/msgSlice";
 import { Button, Image, Input, message } from "antd";
+import { SendOutlined } from "@ant-design/icons";
 import axios from "axios";
 import {
   AwaitedReactNode,
@@ -60,7 +61,7 @@ export default function Page() {
 
     try {
       const response = await axios.get(
-        `http://135.181.241.163/api/chat?user_message=${text}`
+        `http://localhost:8000/api/chat?user_message=${text}`
       );
 
       if (!response.data.error) {
@@ -82,7 +83,7 @@ export default function Page() {
           // Dispatching the action after receiving the response
           dispatch(setMessages(newResMessage));
         } else {
-          message.error(response.data.error)
+          message.error(response.data.error);
         }
       }
     } catch (error) {
@@ -93,7 +94,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col justify-between w-[60%] mx-auto h-screen">
-      <div className="flex-1 relative w-[90%] mb-6 pt-20 overflow-hidden overflow-y-auto mx-auto dark:text-white">
+      <div className="flex-1 relative w-[90%] mb-6 mt-20 overflow-hidden overflow-y-auto mx-auto dark:text-white">
         <div className="w-full p-6 text-xl">
           {messages.map(
             (
@@ -166,12 +167,12 @@ export default function Page() {
           )}
         </div>
       </div>
-      <div className="flex w-[90%] mx-auto gap-2 mb-5 ">
+      <div className="flex justify-center items-center w-[90%] mx-auto gap-2 mb-5 ">
         <TextArea
           key="bordered"
           rows={1}
           placeholder="Enter your description"
-          className="pl-5 text-xl p-2 rounded-3xl"
+          className="flex justify-center items-center pl-10 py-3 text-xl rounded-3xl leading-tight"
           value={text}
           onKeyDown={(e: KeyboardEvent<HTMLTextAreaElement>) =>
             handleKeyPress(e)
@@ -181,16 +182,15 @@ export default function Page() {
           }
           autoFocus
         />
+
         <Button
           color="primary"
           size="large"
-          style={{ height: "55px" }}
+          className="h-[55px] w-[55px]"
           onClick={() => sendMessage()}
           disabled={text ? false : true}
         >
-          <svg width="20" height="20" viewBox="0 0 20 20">
-            <path d="M2.925 5.025L9.18333 7.70833L2.91667 6.875L2.925 5.025ZM9.175 12.2917L2.91667 14.975V13.125L9.175 12.2917ZM1.25833 2.5L1.25 8.33333L13.75 10L1.25 11.6667L1.25833 17.5L18.75 10L1.25833 2.5Z" />
-          </svg>
+          <SendOutlined />
         </Button>
       </div>
     </div>
